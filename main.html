@@ -6,21 +6,43 @@
 		content="Data Visualisation"/>
 		<meta name="keywords" content="HTML, CSS, D3"/>
 		<meta name="author" content="XANDER M, BILLY K"/>
-		<title>ADDING AND REMOVINNG DATA</title>
+		<link rel="stylesheet" href="css/main.css">
+		<title>COS30045 Assignment 3C</title>
 		<script src="https://d3js.org/d3.v6.min.js"></script>
 	</head> 
 		<body>
-			<h1>Assignment 3</h1> 
-			<div>
+			<div id="header"><h1>Assignment 3 (placeholder name)</h1></div>
+			<div id="content">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac lorem tortor. Fusce aliquam 
+					est vitae magna sollicitudin, et blandit odio venenatis. Aenean sit amet ultricies augue. Curabitur 
+					nec ex vel dolor faucibus dapibus. </p>
+				<img class="chartimg" id="chartImg" src="img/OverallDesign1.jpg">
+				<p id="imgDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse luctus a enim vitae dapibus. Nulla et lacus mi. 
+					Aenean non accumsan ipsum. Integer urna ante, vulputate ut tellus eget, fermentum fermentum dolor. Sed felis diam, 
+					scelerisque eget justo quis, aliquam tempor nibh. Sed nisi mauris, dignissim ut lectus ac, elementum viverra erat. Duis 
+					varius vehicula dictum. Sed gravida ante ut risus hendrerit rutrum. Aenean consectetur, tellus sed varius sagittis, lorem 
+					purus euismod augue, at consectetur orci nulla quis nisi.</p>
+				<div id="buttons"><button onclick="changeImg()" id="changeButton" class="button">Next Chart</button></div>
 			</div>
-		<script>
+			<script>
+				function changeImg() {
+					let state = document.getElementById('chartImg'); //set the state var to the <img> tag with id chartImg
 
-		// placeholder
-		</script>
-		<footer>
-		<p>Cos30045 Data Visualisation</p>
-		<p>Xander McKellar, Billy Kozaris</p>
-	</footer>
-	</body>
+					if(state.src.includes("img/OverallDesign1.jpg")){ //if state source is specifically that
+						state.src = "img/OverallDesign3.jpg" //change img source to new image, as well as changing the imgDesc P
+						document.getElementById("imgDesc").innerHTML = "Suspendisse commodo malesuada metus sit amet gravida. Nulla ornare enim eros, ut aliquam nunc dictum eget. Etiam dapibus, dolor at fermentum commodo, turpis erat viverra tortor, eget viverra magna lacus a elit. Phasellus tellus dui, imperdiet quis quam nec, laoreet volutpat tellus. Vestibulum nec consequat ipsum, et condimentum dui. Duis eu arcu dignissim, efficitur sem in, semper leo. Nam et hendrerit risus. Integer neque nunc,";
+						return; //return so it doenst do the below IF statement
+					}
 
+					if(state.src.includes("img/OverallDesign3.jpg")){ //if state source is specifically that
+						state.src = "img/OverallDesign1.jpg" //change it back, imgDesc P as well
+						document.getElementById("imgDesc").innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse luctus a enim vitae dapibus. Nulla et lacus mi. Aenean non accumsan ipsum. Integer urna ante, vulputate ut tellus eget, fermentum fermentum dolor. Sed felis diam, scelerisque eget justo quis, aliquam tempor nibh. Sed nisi mauris, dignissim ut lectus ac, elementum viverra erat. Duis varius vehicula dictum. Sed gravida ante ut risus hendrerit rutrum. Aenean consectetur, tellus sed varius sagittis, lorem purus euismod augue, at consectetur orci nulla quis nisi.";
+						return;
+					}
+				}
+			</script>
+			<footer>
+				<p>COS30045 Data Visualisation, Xander McKellar, Billy Kozaris</p>
+			</footer>
+		</body>
 	</html>
