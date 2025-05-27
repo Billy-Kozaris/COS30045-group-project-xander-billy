@@ -11,6 +11,9 @@
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <script src="js/lineChart.js"></script>
   <script src="js/changeImage.js"></script>
+    		<script src="js/chart1.js"></script>
+		<script src="js/chart2.js"></script>
+		<script src="js/main.js"></script>
 </head> 
   <body>
     <div id="header"><h1>Assignment 3 (placeholder name)</h1></div>
@@ -19,14 +22,26 @@
         est vitae magna sollicitudin, et blandit odio venenatis. Aenean sit amet ultricies augue. Curabitur 
         nec ex vel dolor faucibus dapibus. </p>
       <!--This image gets updated when the button further donw is clicked-->
-      <img class="chartimg" id="chartImg" src="img/OverallDesign1.jpg">
+<!--      <img class="chartimg" id="chartImg" src="img/OverallDesign1.jpg"> -->
       <p id="imgDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse luctus a enim vitae dapibus. Nulla et lacus mi. 
         Aenean non accumsan ipsum. Integer urna ante, vulputate ut tellus eget, fermentum fermentum dolor. Sed felis diam, 
         scelerisque eget justo quis, aliquam tempor nibh. Sed nisi mauris, dignissim ut lectus ac, elementum viverra erat. Duis 
         varius vehicula dictum. Sed gravida ante ut risus hendrerit rutrum. Aenean consectetur, tellus sed varius sagittis, lorem 
         purus euismod augue, at consectetur orci nulla quis nisi.</p>
-      <!--changeImage.js file created, containts the changeImg() function (almost certainly remove when actual charts are made)-->
-      <div id="buttons"><button onclick="changeImg()" id="changeButton" class="button">Next Chart</button></div>
+		
+		
+
+	  
+	  
+		<div id="buttons"> <!--  -->
+	  
+	  	<button onclick="showChart('1')"class="button">Chart 1</button>
+		<button onclick="showChart('2')"class="button">Chart 2</button>
+		
+		<div id="chartspace"></div>
+	  
+	  
+	  </div>
     <h2>Refine the Search</h2>
     <p>Select a country from the menu to view only that country</p>
     <!--Dropdown Menu for Selecting what chart appears-->
