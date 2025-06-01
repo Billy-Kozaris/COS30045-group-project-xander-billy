@@ -58,6 +58,17 @@ body{
     transition: 0.3s;
 }
 
+#gBarChart{
+    width: 60%;
+    margin: auto;
+}
+
+#gBarLegend{
+    width: 60%;
+    margin: auto;
+    text-align: left;
+}
+
 footer{
     color: white;
     font-size: 9px;

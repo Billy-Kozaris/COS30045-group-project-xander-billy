@@ -43,7 +43,15 @@ function init(){
         .text("Life Expectancy")
         .style("font-size", "20px");
 
-
+    var lineTooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("background", "#fff")
+        .style("border", "1px solid #ccc")
+        .style("padding", "5px")
+        .style("border-radius", "5px")
+        .style("display", "none")
+        .style("pointer-events", "none");
 
 
 
@@ -54,6 +62,7 @@ function init(){
                 value: +d.VALUE,
                 code: d.CODE
             }));
+
             //select only the data matching the country selected
             var filteredData = parsedData.filter(d => d.code === country);
             //Linear scale for X axis
@@ -82,15 +91,53 @@ function init(){
                 .x(d => x(d.date))
                 .y0(h) 
                 .y1(d => y(d.value));
+        
             //Draw the area from the filtered data
             svg.select(".area-path")
                 .datum(filteredData)
                 .transition().duration(1000)
                 .attr("d", area);
 
+            //create a list of circles required for the tooltips
+            var lineCircles = svg.selectAll(".lineCircle")
+                .data(filteredData, d => d.date);
+
+            // Remove old circles
+            lineCircles.exit()
+                .style("opacity", 0)
+                .remove();
+
+            // Add new Circles
+            lineCircles.enter()
+                .append("circle")
+                .attr("class", "lineCircle")
+                .attr("cx", d => x(d.date))
+                .attr("cy", d => y(d.value))
+                .attr("r", 4)
+                .attr("fill", "#000000")
+                .style("opacity", 0)
+                .on("mouseover", function(event, d) {
+                    lineTooltip.style("display", "block")
+                        .html("Year: " + d.date + "<br>Life Expectancy: " + d.value)
+                        .style("left", event.pageX + "px")
+                        .style("top", event.pageY - 20 + "px")
+                        .transition().duration(300)
+                        .style("opacity", 1);
+                    d3.select(this).transition().duration(200).style("opacity", 0);
+                })
+                .on("mouseout", function() {
+                    lineTooltip.transition().duration(300)
+                        .style("opacity", 0)
+                        .on("end", function() {
+                            d3.select(this).style("display", "none");
+                        });
+                    d3.select(this).transition().duration(200).style("opacity", 0);
+                });
+            lineCircles.transition()
+                .attr("cx", d => x(d.date))
+                .attr("cy", d => y(d.value));
         });
     }
-    //Call updateChart on initialization otherwise nothing will draw until an option is selected
     updateChart(country); 
 }
 
@@ -98,4 +145,4 @@ function init(){
 
 
 
-window.onload = init;
+window.addEventListener("load", init);
