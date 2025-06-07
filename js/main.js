@@ -16,4 +16,4 @@ function init() {
 	showChart("1"); //just default to one if we're doing function init. not sure yet honestly.
 }
 
-//window.onload = init; //not sure yet. could interfere with storytelling.
+window.onload = init;
