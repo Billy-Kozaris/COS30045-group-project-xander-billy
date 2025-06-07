@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="description"
-  content="Data Visualisation"/>
-  <meta name="keywords" content="HTML, CSS, D3"/>
-  <meta name="author" content="XANDER M, BILLY K"/>
-  <link rel="stylesheet" href="css/main.css">
-  <title>COS30045 Assignment 3C</title>
-  <script src="https://d3js.org/d3.v6.min.js"></script>
-  <script src="js/lineChart.js"></script>
-  <script src="js/changeImage.js"></script>
-  <script src="js/chart1.js"></script>
-  <script src="js/chart2.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/groupedBarChart.js"></script>
+	<meta charset="UTF-8"/>
+	<meta name="description"
+	content="Data Visualisation"/>
+	<meta name="keywords" content="HTML, CSS, D3"/>
+	<meta name="author" content="XANDER M, BILLY K"/>
+	<link rel="stylesheet" href="css/main.css">
+	<title>COS30045 Assignment 3C</title>
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="js/lineChart.js"></script>
+	<script src="js/changeImage.js"></script>
+	<script src="js/chart1.js"></script>
+	<script src="js/chart2.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/groupedBarChart.js"></script>
 </head> 
   <body>
-    <div id="header"><h1>COS30045 Assignment 3 - OECD Data Visualized</h1></div>
+    <div id="header"><h1>COS30045 Assignment 3 - Life Expectancy & Mortality Rates</h1></div>
     <div id="content">
-      <h2>What is the OECD?</h2>
-      <p>The OECD (Organisation for Economic Co-operation and Development) is an intergovernmental organization comprising 38 member countries. 
-        These nations collaborate to discuss challenges, exchange expertise, and develop solutions for economic and social issues, with the overarching 
-        goal of fostering policies that enhance global prosperity and well-being.<br>
+		<h2>What is this page?</h2>
+		<p>This page presents a collection of two datasets taken from the OECD (Organisation for Economic Co-operation and Development).
+		   These include Average Life Expectancy, and Potential Years of Life Lost, presented using visualisations. Additionally, this
+		   includes a visualisation comparing the trends of both datasets.<br>
       </p>
-      <h2>What we aim to show:</h2>
-      <p>This webpage presents life expectancy and potential years of life lost data from the OECD database in an accessible and intuitive format, making complex information easier to interpret.</p>
-      <br>
-      <p>Links to Original datasets:</p>
-      <ul>
-        <li><a style="list-style-type: circle" href="https://data-explorer.oecd.org/vis?lc=en&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_HEALTH_STAT%40DF_LE&df[ag]=OECD.ELS.HD&df[vs]=1.0&dq=.A.LFEXP..Y0._T.......&pd=2015%2C&to[TIME_PERIOD]=false&vw=tl">Life Expectancy</a></li>
-        <li><a href="https://data-explorer.oecd.org/vis?lc=en&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_HEALTH_STAT%40DF_PYLL&df[ag]=OECD.ELS.HD&df[vs]=1.0&dq=.A......_T.....&pd=2015%2C&to[TIME_PERIOD]=false&vw=sb">Potential Years of Life Lost</a></li>
-      </ul>
-		<div id="buttons"> <!--  -->
-	  <button id="LEChart" onclick="showChart('1')"class="button">Chart 1</button>
-		<button id="YOLFChart" onclick="showChart('2')"class="button">Chart 2</button>
+		<div id="buttons"> <!-- buttons for switching -->
+	  <button id="LEChart" onclick="showChart('1')"class="button">Life Expectancy</button>
+		<button id="YOLFChart" onclick="showChart('2')"class="button">Potential Years of Life Lost</button>
 		<div id="chartspace"></div>
 	  </div>
     <!--Line Chart Section-->
@@ -95,10 +87,6 @@
     <!--Container for the Chart (its not a line chart anymore but its basically the same)-->
     <div id="LineChart">
     </div>
-    <p>This chart highlights real-world events that have influenced life expectancy trends. Many countries experience 
-      a decline toward the end, likely due to the impact of the COVID-19 pandemic. Similarly, the Peru chart shows a 
-      sharp drop in 1970, possibly due to the devastating <a href="https://en.wikipedia.org/wiki/1970_Ancash_earthquake">Ancash earthquake</a>. The South Africa chart 
-      also reveals a significant decline between 1995 and 2010, likely linked to the <a href="https://en.wikipedia.org/wiki/HIV/AIDS_in_South_Africa">HIV/AIDS pandemic</a> in the country.</p>
     <!--Grouped Bar Chart section-->
     <h2>Potential Years of Life Lost Expanded</h2>
     <p>View the values of the Years of Life lost values for individual countries and see them compared against the Life Expectancy of the country. Choose a country to view from the dropdown box below:</p>
@@ -156,20 +144,6 @@
     </div>
     <div id="gBarChart">
     </div>
-    <p>Examining these values reveals a strong correlation between declining years of life lost and rising life expectancy. 
-      This trend reflects advancements in healthcare, disease prevention, and treatment methods. Today, chronic illnesses like heart disease,
-       cancer, and dementia remain leading causes of death. Improved medical interventions, early detection, and public health initiatives have 
-       contributed to longer lifespans and reduced premature mortality, highlighting the critical role of healthcare progress and accessibility in shaping global life expectancy.
-    </p>
-    <h2>Key Takeaways:</h2>
-    <ul id="keyTakeaways">
-      <li><b>Data Limitations:</b> Life expectancy data can be influenced by variations in healthcare systems, reporting inconsistencies, and national averages that may overlook 
-        regional disparities. External factors like socioeconomic conditions and policy changes also play a role.</li>
-      <li><b>Interactive Insights:</b> Users can compare countries, analyze shifts in life expectancy, and explore correlations with years of life 
-        lost using dual-axis scaling for deeper insights.</li>
-      <li><b>Real-World Relevance:</b> Significant global events, such as pandemics or economic crises, can cause noticeable shifts in 
-        mortality trends. Recognizing these patterns helps contextualize changes over time and understand broader societal impacts.</li>
-    </ul>
     <footer>
       <p>COS30045 Data Visualisation, Xander McKellar, Billy Kozaris</p>
     </footer>
